@@ -2,11 +2,12 @@ import "./index.css";
 import Canvas from "./canvas";
 import data from "./data";
 import LocomotiveScroll from "locomotive-scroll";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [showCanvas, setShowCanvas] = useState(false);
   useEffect(() => {
-    const scroll = new LocomotiveScroll()
+    const locomotiveScroll = new LocomotiveScroll()
     },[]);
   return (
     <>
@@ -15,7 +16,7 @@ function App() {
         {data[0].map((canvasdets, index) => (
           <Canvas key={index} details={canvasdets} />
         ))}
-        <div className="w-full h-screen text-white relative">
+        <div className="w-full h-screen z-[10] text-white relative">
           <nav className="w-full p-8 flex justify-between bg-red bg-opacity-50">
             <div className="brand text-2xl font-regular">Chill-I</div>
             <div className="links flex gap-10">
@@ -42,12 +43,19 @@ function App() {
              </div>
           </div>
           <div className="w-full">
-            <h1 className="text-[17rem] font-normal tracking-tight">
+            <h1 className="text-[14rem] font-normal tracking-tight leading-none pl-5">
             Thirtysixstudio </h1>
           </div>
         </div>
       </div>
-      
+      <div className="w-full h-screen relative text-white mt-32 px-10">
+        {data[1].map((canvasdets, index) => (
+          <Canvas key={index} details={canvasdets} />
+        ))}
+        <h1 className="text-8xl">about the brand</h1>
+        <p className="text-lg w-[80%] mt-10 font-normal">
+          At Thirtysixstudios, we believe in creating bold and meaningful brand experiences that reflect our passion for design and innovation. We focus on crafting unique visual identities and digital solutions that truly represent who we are. Our approach is rooted in creativity, storytelling, and attention to detail, allowing us to push boundaries while staying authentic to our vision. We see every project as an opportunity to explore new ideas, express ourselves, and create work that leaves a lasting impression.</p>
+      </div>
     </>
   );
 }
