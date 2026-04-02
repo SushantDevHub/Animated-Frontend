@@ -1,20 +1,20 @@
-import "./index.css";
+ import "./index.css";
 import Canvas from "./canvas";
 import data from "./data";
 import LocomotiveScroll from "locomotive-scroll";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 function App() {
   const [showCanvas, setShowCanvas] = useState(false);
+  const headingref = useRef(null);
   useEffect(() => {
     const locomotiveScroll = new LocomotiveScroll()
     },[]);
   return (
     <>
       <div className="w-full relative min-h-screen">
-        
         {data[0].map((canvasdets, index) => (
-          <Canvas key={index} details={canvasdets} />
+          <Canvas key={index} details={canvasdets} /> 
         ))}
         <div className="w-full h-screen z-[10] text-white relative">
           <nav className="w-full p-8 flex justify-between bg-red bg-opacity-50">
